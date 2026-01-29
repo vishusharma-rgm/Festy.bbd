@@ -1,0 +1,262 @@
+
+.bg-lights::before,
+.bg-lights::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.7;
+  animation: floatLights 18s infinite alternate ease-in-out;
+}
+
+.bg-lights::before {
+  background: #6366f1;
+  top: -120px;
+  left: -120px;
+}
+
+.bg-lights::after {
+  background: #22d3ee;
+  bottom: -120px;
+  right: -120px;
+  animation-delay: 6s;
+}
+
+@keyframes floatLights {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(160px, 120px);
+  }
+  100% {
+    transform: translate(-120px, -80px);
+  }
+}
+
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 5px rgba(139,92,246,0.3); }
+  50% { box-shadow: 0 0 20px rgba(139,92,246,0.8); }
+  100% { box-shadow: 0 0 5px rgba(139,92,246,0.3); }
+}
+
+.event-card {
+  animation: pulseGlow 2.5s infinite;
+}
+
+/* ⚡ Button bounce */
+@keyframes bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+button:active {
+  animation: bounce 0.3s;
+}
+
+/* ✨ Registration glow */
+.registered {
+  color: #22c55e;
+  text-shadow: 0 0 8px rgba(34,197,94,0.8);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 20% 20%, #1e3a8a55, transparent 40%),
+    radial-gradient(circle at 80% 80%, #7c3aed55, transparent 40%),
+    linear-gradient(120deg, #020617, #020617, #020617);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.app {
+  width: 380px;
+  padding: 28px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.25);
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.6),
+    inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+
+h1 {
+  text-align: center;
+  margin-bottom: 4px;
+  letter-spacing: 2px;
+}
+
+p {
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+input {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.15);
+  color: white;
+}
+
+input::placeholder {
+  color: #c7d2fe;
+}
+
+.event-card {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, rgba(99,102,241,0.25), rgba(139,92,246,0.25));
+  border: 1px solid rgba(255,255,255,0.15);
+
+  transition: 0.25s ease;
+}
+
+.event-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(139,92,246,0.7);
+}
+
+.event-card strong {
+  display: block;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 14px;
+
+  border-radius: 10px;
+  border: none;
+
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #8b5cf6;
+}
+
+.mouse-glow {
+  position: fixed;
+  width: 180px;
+  height: 180px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99,102,241,0.5), transparent 60%);
+  filter: blur(40px);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.team-btn {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.08);
+  color: white;
+  cursor: pointer;
+  transition: 0.25s ease;
+  backdrop-filter: blur(6px);
+}
+
+.team-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(139,92,246,0.5);
+}
+
+.team-btn.active {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  box-shadow: 0 0 20px rgba(139,92,246,0.9);
+  border: none;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(99,102,241,0.18), transparent 40%),
+    radial-gradient(circle at 70% 70%, rgba(139,92,246,0.18), transparent 40%);
+  animation: glowMove 18s linear infinite;
+}
+
+@keyframes glowMove {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(-40px, 30px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    width: 94%;
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .team-btn {
+    flex: 1;
+    font-size: 13px;
+  }
+}
+
